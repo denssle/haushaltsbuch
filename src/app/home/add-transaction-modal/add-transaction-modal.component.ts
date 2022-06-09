@@ -29,9 +29,7 @@ export class AddTransactionModalComponent implements OnInit {
   }
 
   save() {
-    const newTransaction: Transaction = Object.assign(new Transaction(), this.formGroup.value);
-    newTransaction.wann = new Date(this.formGroup.get('wann').value);
-    this.ts.save(newTransaction);
+    this.ts.save(this.formGroup.value);
     this.modalController.dismiss();
   }
 }
