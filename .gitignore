@@ -1,6 +1,3 @@
-# Specifies intentionally untracked files to ignore when using Git
-# http://git-scm.com/docs/gitignore
-
 *~
 *.sw[mnpcod]
 .tmp
@@ -8,7 +5,6 @@
 *.tmp.*
 *.sublime-project
 *.sublime-workspace
-.DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
@@ -17,7 +13,6 @@ $RECYCLE.BIN/
 log.txt
 npm-debug.log*
 
-/.angular
 /.idea
 /.ionic
 /.sass-cache
@@ -30,3 +25,27 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/target
+.classpath
+.project
+.settings/
+target/
+/target/
+*/target/**
+.sass-cache
+*.swp
+*.swo
+*.DS_Store
+**/META-INF/
+!.mvn/wrapper/maven-wrapper.jar
+
+*.lst
+*.jar
+*.class
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.angular/
