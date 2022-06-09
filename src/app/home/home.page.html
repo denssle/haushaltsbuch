@@ -7,8 +7,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>Content here</p>
 
+  <ion-card (click)="openTransactionsList(alleEinnahmen,'Alle Ausgaben')">
+    <ion-card-content>
+      <ion-label style="color: green">
+        <ion-icon name="bag-add-outline"></ion-icon>
+        Einnahmen: {{summeAllerEinnahmen}}
+      </ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card (click)="openTransactionsList(alleAusgaben, 'Alle Ausgaben')">
+    <ion-card-content>
+      <ion-label style="color: red">
+        <ion-icon name="bag-remove-outline"></ion-icon>
+        Ausgaben: {{summeAllerAusgaben}}
+      </ion-label>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-label>
+        Differenz: {{summeAllerEinnahmen - summeAllerAusgaben}}
+      </ion-label>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 <ion-footer collapse="fade">

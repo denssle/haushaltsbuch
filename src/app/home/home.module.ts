@@ -6,6 +6,7 @@ import {HomePage} from './home.page';
 
 import {HomePageRoutingModule} from './home-routing.module';
 import {AddTransactionModalComponent} from './add-transaction-modal/add-transaction-modal.component';
+import {TransactionsListModalComponent} from './transactions-list-modal/transactions-list-modal.component';
 
 
 @NgModule({
@@ -16,7 +17,11 @@ import {AddTransactionModalComponent} from './add-transaction-modal/add-transact
     HomePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, AddTransactionModalComponent]
+  declarations: [
+    HomePage,
+    AddTransactionModalComponent,
+    TransactionsListModalComponent,
+  ]
 })
 export class HomePageModule {
 }

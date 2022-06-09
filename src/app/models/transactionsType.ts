@@ -1,1 +1,1 @@
-export type TransactionsType = 'augabe' | 'einnahme';
+export type TransactionsType = 'ausgabe' | 'einnahme';
