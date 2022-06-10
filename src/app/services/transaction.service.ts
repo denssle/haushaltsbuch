@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Transaction} from '../models/transaction';
 import {BehaviorSubject, Observable} from 'rxjs';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class TransactionService {
 
   private jsonToTransaction(json: any): Transaction {
     const newTransaction: Transaction = Object.assign(new Transaction(), json);
-    newTransaction.wann = new Date(newTransaction.wann);
+    newTransaction.wann = moment(json.wann);
     return newTransaction;
   }
 }

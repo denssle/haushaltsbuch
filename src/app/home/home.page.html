@@ -1,14 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-fab-button (click)="left()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
     <ion-title>
-      Toolbar
+      {{selectedDate.locale("de").format("MMMM YYYY")}}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-fab-button (click)="right()">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <ion-card (click)="openTransactionsList(alleEinnahmen,'Alle Ausgaben')">
+  <ion-card (click)="openTransactionsList(alleEinnahmen,'Alle Einnahmen')">
     <ion-card-content>
       <ion-label style="color: green">
         <ion-icon name="bag-add-outline"></ion-icon>

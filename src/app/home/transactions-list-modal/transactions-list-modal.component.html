@@ -9,7 +9,7 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let transaction of transactions">
-      <ion-label>{{transaction.wann?.toLocaleDateString()}}</ion-label>
+      <ion-label>{{transaction.wann.format("DD.MM.YYYY")}}</ion-label>
       <ion-label>{{transaction.was}}</ion-label>
       <ion-label>{{transaction.wert}}</ion-label>
     </ion-item>
