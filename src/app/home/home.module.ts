@@ -7,6 +7,7 @@ import {HomePage} from './home.page';
 import {HomePageRoutingModule} from './home-routing.module';
 import {AddTransactionModalComponent} from './add-transaction-modal/add-transaction-modal.component';
 import {TransactionsListModalComponent} from './transactions-list-modal/transactions-list-modal.component';
+import {MenuModalComponent} from './menu-modal/menu-modal.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {TransactionsListModalComponent} from './transactions-list-modal/transact
     HomePage,
     AddTransactionModalComponent,
     TransactionsListModalComponent,
+    MenuModalComponent,
   ]
 })
 export class HomePageModule {

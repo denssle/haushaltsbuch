@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-fab-button (click)="left()">
+      <ion-fab-button (click)="clickLeft()">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-fab-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
       {{selectedDate.locale("de").format("MMMM YYYY")}}
     </ion-title>
     <ion-buttons slot="end">
-      <ion-fab-button (click)="right()">
+      <ion-fab-button (click)="clickRight()">
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </ion-fab-button>
     </ion-buttons>
@@ -46,6 +46,12 @@
 </ion-content>
 
 <ion-footer collapse="fade">
+  <ion-fab vertical="bottom" horizontal="start">
+    <ion-fab-button (click)="clickMenu()">
+      <ion-icon name="menu-outline">
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-fab vertical="bottom" horizontal="end">
     <ion-fab-button (click)="clickAdd()">
       <ion-icon name="add"></ion-icon>

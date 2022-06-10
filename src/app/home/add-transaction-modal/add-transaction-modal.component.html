@@ -28,8 +28,9 @@
     <ion-item>
       <ion-label>Was</ion-label>
       <ion-select value="notifications" interface="action-sheet" formControlName="was">
-        <ion-select-option value="lebensmittel">Lebensmittel</ion-select-option>
-        <ion-select-option value="tanken">Tanken</ion-select-option>
+        <ion-select-option *ngFor="let was of wasList" value="{{was}}">
+          {{was.label}}
+        </ion-select-option>
       </ion-select>
     </ion-item>
   </form>

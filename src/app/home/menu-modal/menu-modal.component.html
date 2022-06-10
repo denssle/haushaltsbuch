@@ -1,19 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      {{title}}
+      Einstellungen & Optionen
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let transaction of transactions">
-      <ion-label>{{transaction.wann.format("DD.MM.YYYY")}}</ion-label>
-      <ion-label>{{transaction.was.label}}</ion-label>
-      <ion-label>{{transaction.wert}}</ion-label>
-    </ion-item>
-  </ion-list>
+  <section>
+    <ion-button expand="block" (click)="wipeTransactions()">Wipe all Transactions</ion-button>
+    <ion-button expand="block" (click)="wipeWas()">Wipe all Was</ion-button>
+  </section>
 </ion-content>
 
 <ion-footer collapse="fade">

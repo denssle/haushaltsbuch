@@ -5,6 +5,7 @@ import {TransactionService} from '../services/transaction.service';
 import {Transaction} from '../models/transaction';
 import {TransactionsListModalComponent} from './transactions-list-modal/transactions-list-modal.component';
 import * as moment from 'moment';
+import {MenuModalComponent} from './menu-modal/menu-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -48,12 +49,20 @@ export class HomePage implements OnInit {
     });
   }
 
-  left(): void {
+  clickMenu(): void {
+    this.modalController.create({
+      component: MenuModalComponent,
+    }).then(value => {
+      value.present();
+    });
+  }
+
+  clickLeft(): void {
     this.selectedDate.subtract(1, 'month');
     this.filterTransactionListByDate();
   }
 
-  right(): void {
+  clickRight(): void {
     this.selectedDate.add(1, 'month');
     this.filterTransactionListByDate();
   }
@@ -64,10 +73,10 @@ export class HomePage implements OnInit {
     );
   }
 
-  private useTransactionList(value: Transaction[]) {
+  private useTransactionList(value: Transaction[]): void {
     this.alleAusgaben = value.filter(trans => trans.type === 'ausgabe');
     this.alleEinnahmen = value.filter(trans => trans.type === 'einnahme');
-    this.summeAllerAusgaben = this.alleAusgaben.reduce((r, d) => r + d.wert, 0);
-    this.summeAllerEinnahmen = this.alleEinnahmen.reduce((r, d) => r + d.wert, 0);
+    this.summeAllerAusgaben = this.alleAusgaben.reduce((nbr, d) => nbr + d.wert, 0);
+    this.summeAllerEinnahmen = this.alleEinnahmen.reduce((nbr, d) => nbr + d.wert, 0);
   }
 }

@@ -38,9 +38,15 @@ export class TransactionService {
     return this.transactions.asObservable();
   }
 
+  wipe(): void {
+    localStorage.setItem(this.transactionsKey, JSON.stringify([]));
+    this.transactions.next([]);
+  }
+
   private jsonToTransaction(json: any): Transaction {
     const newTransaction: Transaction = Object.assign(new Transaction(), json);
     newTransaction.wann = moment(json.wann);
     return newTransaction;
   }
+
 }
