@@ -15,9 +15,15 @@ export class TransactionService {
 
   load(): Transaction[] {
     const value = localStorage.getItem(this.transactionsKey);
-    const parse = JSON.parse(value).map(transaction => this.jsonToTransaction(transaction));
-    this.transactions.next(parse);
-    return parse;
+    const json: any[] = JSON.parse(value);
+    if (value && json && json.length) {
+      const parse = json.map(transaction => this.jsonToTransaction(transaction));
+      this.transactions.next(parse);
+      return parse;
+    } else {
+      localStorage.setItem(this.transactionsKey, JSON.stringify([]));
+      return [];
+    }
   }
 
   save(data: Transaction): void {
