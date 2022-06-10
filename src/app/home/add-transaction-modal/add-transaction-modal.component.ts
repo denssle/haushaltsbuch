@@ -14,6 +14,7 @@ import {Subscription} from 'rxjs';
 export class AddTransactionModalComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
   kategories: TransactionKategorie[] = [];
+  filteredKategories: TransactionKategorie[] = [];
   subscriptions: Subscription[] = [];
 
   constructor(private modalController: ModalController, private fb: FormBuilder,
@@ -29,9 +30,12 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
     });
     this.subscriptions.push(
       this.tws.observe().subscribe(value => {
-        console.log(value);
         this.kategories = value;
+        this.filterKategories();
       }));
+    this.subscriptions.push(this.formGroup.get('type').valueChanges.subscribe(() => {
+      this.filterKategories();
+    }));
   }
 
   ngOnDestroy(): void {
@@ -46,5 +50,11 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
   save() {
     this.ts.save(this.formGroup.value);
     this.modalController.dismiss();
+  }
+
+  private filterKategories(): void {
+    this.filteredKategories = this.kategories
+      .filter(value => value.type === this.formGroup.get('type').value)
+      .sort((a, b) => a.label.localeCompare(b.label));
   }
 }
