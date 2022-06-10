@@ -2,8 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TransactionService} from '../../services/transaction.service';
-import {TransactionWas} from '../../models/tansactionWas';
-import {TransactionWasService} from '../../services/transaction-was.service';
+import {TransactionKategorie} from '../../models/tansactionKategorie';
+import {TransactionKategorieService} from '../../services/transaction-kategorie.service';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -13,11 +13,11 @@ import {Subscription} from 'rxjs';
 })
 export class AddTransactionModalComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
-  wasList: TransactionWas[] = [];
+  kategories: TransactionKategorie[] = [];
   subscriptions: Subscription[] = [];
 
   constructor(private modalController: ModalController, private fb: FormBuilder,
-              private ts: TransactionService, private tws: TransactionWasService) {
+              private ts: TransactionService, private tws: TransactionKategorieService) {
   }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.tws.observe().subscribe(value => {
         console.log(value);
-        this.wasList = value;
+        this.kategories = value;
       }));
   }
 

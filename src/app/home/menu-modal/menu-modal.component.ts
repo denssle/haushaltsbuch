@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {TransactionService} from '../../services/transaction.service';
-import {TransactionWasService} from '../../services/transaction-was.service';
+import {TransactionKategorieService} from '../../services/transaction-kategorie.service';
 
 @Component({
   selector: 'app-menu-modal',
@@ -10,7 +10,7 @@ import {TransactionWasService} from '../../services/transaction-was.service';
 })
 export class MenuModalComponent implements OnInit {
 
-  constructor(private modalController: ModalController, private ts: TransactionService, private tws: TransactionWasService) {
+  constructor(private modalController: ModalController, private ts: TransactionService, private tws: TransactionKategorieService) {
   }
 
   ngOnInit() {

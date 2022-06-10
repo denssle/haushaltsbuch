@@ -1,6 +1,6 @@
 import {TransactionsType} from './transactionsType';
 
-export class TransactionWas {
+export class TransactionKategorie {
   type: TransactionsType;
   icon: string;
   label: string;
