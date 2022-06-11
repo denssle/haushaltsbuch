@@ -28,7 +28,7 @@ export class TransactionService {
   }
 
   save(data: Transaction): void {
-    const list = this.load();
+    const list = this.transactions.getValue();
     list.push(this.jsonToTransaction(data));
     localStorage.setItem(this.transactionsKey, JSON.stringify(list));
     this.transactions.next(list);
@@ -43,13 +43,21 @@ export class TransactionService {
     this.transactions.next([]);
   }
 
-  update(value: any): void {
-    console.log(value);
+  update(input: any): void {
+    const transaction: Transaction = this.jsonToTransaction(input);
+    const transactions: Transaction[] = this.transactions.getValue();
+    const oldTransaction: Transaction = transactions.find(value1 => value1.id === transaction.id);
+    transactions[transactions.indexOf(oldTransaction)] = transaction;
+    localStorage.setItem(this.transactionsKey, JSON.stringify(transactions));
+    this.transactions.next(transactions);
   }
 
   private jsonToTransaction(json: any): Transaction {
     const newTransaction: Transaction = Object.assign(new Transaction(), json);
     newTransaction.wann = moment(json.wann);
+    if (!newTransaction.id) {
+      newTransaction.id = newTransaction.wann.date() * Math.random();
+    }
     return newTransaction;
   }
 }

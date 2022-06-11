@@ -10,6 +10,7 @@
   <ion-list>
     <ion-item *ngFor="let transaction of transactions" (click)="clickTransaction(transaction)">
       <ion-label>{{transaction.wann.format("DD.MM.YYYY")}}</ion-label>
+      <ion-icon name="{{transaction.was.icon}}"></ion-icon>
       <ion-label>{{transaction.was.label}}</ion-label>
       <ion-label>{{transaction.wert}}</ion-label>
     </ion-item>

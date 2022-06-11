@@ -25,6 +25,7 @@ export class UpdateTransactionsModalComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.formGroup = this.fb.group({
+      id: [this.transaction.id],
       type: new FormControl(this.transaction.type, Validators.required),
       wann: new FormControl(this.transaction.wann.toISOString().split('T')[0], Validators.required),
       wert: new FormControl(this.transaction.wert, Validators.required),
