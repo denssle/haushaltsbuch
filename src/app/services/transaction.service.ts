@@ -43,10 +43,13 @@ export class TransactionService {
     this.transactions.next([]);
   }
 
+  update(value: any): void {
+    console.log(value);
+  }
+
   private jsonToTransaction(json: any): Transaction {
     const newTransaction: Transaction = Object.assign(new Transaction(), json);
     newTransaction.wann = moment(json.wann);
     return newTransaction;
   }
-
 }

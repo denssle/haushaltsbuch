@@ -9,6 +9,9 @@ import {AddTransactionModalComponent} from './add-transaction-modal/add-transact
 import {TransactionsListModalComponent} from './transactions-list-modal/transactions-list-modal.component';
 import {MenuModalComponent} from './menu-modal/menu-modal.component';
 import {AddKategorieModalComponent} from './menu-modal/add-kategorie-modal/add-kategorie-modal.component';
+import {
+  UpdateTransactionsModalComponent
+} from './transactions-list-modal/update-transactions-modal/update-transactions-modal.component';
 
 
 @NgModule({
@@ -25,6 +28,7 @@ import {AddKategorieModalComponent} from './menu-modal/add-kategorie-modal/add-k
     TransactionsListModalComponent,
     MenuModalComponent,
     AddKategorieModalComponent,
+    UpdateTransactionsModalComponent,
   ]
 })
 export class HomePageModule {

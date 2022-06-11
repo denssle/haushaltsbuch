@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let transaction of transactions">
+    <ion-item *ngFor="let transaction of transactions" (click)="clickTransaction(transaction)">
       <ion-label>{{transaction.wann.format("DD.MM.YYYY")}}</ion-label>
       <ion-label>{{transaction.was.label}}</ion-label>
       <ion-label>{{transaction.wert}}</ion-label>
