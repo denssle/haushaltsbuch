@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {TransactionService} from '../../services/transaction.service';
 import {TransactionKategorieService} from '../../services/transaction-kategorie.service';
+import {AddKategorieModalComponent} from './add-kategorie-modal/add-kategorie-modal.component';
 
 @Component({
   selector: 'app-menu-modal',
@@ -26,5 +27,13 @@ export class MenuModalComponent implements OnInit {
 
   wipeWas() {
     this.tws.wipe();
+  }
+
+  addKategorie() {
+    this.modalController.create({
+      component: AddKategorieModalComponent,
+    }).then(value => {
+      value.present();
+    });
   }
 }

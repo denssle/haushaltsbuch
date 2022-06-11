@@ -22,9 +22,9 @@ export class TransactionKategorieService {
       return parse;
     } else {
       const standardList: TransactionKategorie[] = [
-        {label: 'Gehalt', icon: '', type: 'einnahme'},
-        {label: 'Miete', icon: '', type: 'ausgabe'},
-        {label: 'Lebensmittel', icon: '', type: 'ausgabe'},
+        {label: 'Gehalt', icon: 'cash-outline', type: 'einnahme'},
+        {label: 'Miete', icon: 'home-outline', type: 'ausgabe'},
+        {label: 'Lebensmittel', icon: 'pizza-outline', type: 'ausgabe'},
       ];
       localStorage.setItem(this.kategorieKey, JSON.stringify(standardList));
       return standardList;
@@ -35,6 +35,7 @@ export class TransactionKategorieService {
     const list = this.load();
     list.push(this.jsonToTransactionWas(newKategorie));
     this.subject.next(list);
+    localStorage.setItem(this.kategorieKey, JSON.stringify(list));
   }
 
   observe(): Observable<TransactionKategorie[]> {

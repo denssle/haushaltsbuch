@@ -8,6 +8,7 @@ import {HomePageRoutingModule} from './home-routing.module';
 import {AddTransactionModalComponent} from './add-transaction-modal/add-transaction-modal.component';
 import {TransactionsListModalComponent} from './transactions-list-modal/transactions-list-modal.component';
 import {MenuModalComponent} from './menu-modal/menu-modal.component';
+import {AddKategorieModalComponent} from './menu-modal/add-kategorie-modal/add-kategorie-modal.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {MenuModalComponent} from './menu-modal/menu-modal.component';
     AddTransactionModalComponent,
     TransactionsListModalComponent,
     MenuModalComponent,
+    AddKategorieModalComponent,
   ]
 })
 export class HomePageModule {

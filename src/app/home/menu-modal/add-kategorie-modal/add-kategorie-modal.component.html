@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Neue Transaktion
+      Neue Kategorie
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,30 +10,24 @@
   <form [formGroup]="formGroup">
     <ion-item>
       <ion-select interface="action-sheet" formControlName="type" required>
-        <ion-select-option value="ausgabe">Neue Ausgabe</ion-select-option>
-        <ion-select-option value="einnahme">Neue Einnahme</ion-select-option>
+        <ion-select-option value="ausgabe">Neue Ausgaben Kategorie</ion-select-option>
+        <ion-select-option value="einnahme">Neue Einnahmen Kategorie</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label>Wann</ion-label>
-      <ion-input placeholder="Wann" type="date" formControlName="wann" required="{{true}}"></ion-input>
+      <ion-label>Name</ion-label>
+      <ion-input placeholder="der Kategorie" formControlName="label" clear-input="true"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Wie viel</ion-label>
-      <ion-input placeholder="Betrag" type="number" formControlName="wert" clear-input="true"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Was</ion-label>
-      <ion-select value="notifications" interface="action-sheet" formControlName="was">
-        <ion-select-option *ngFor="let was of filteredKategories" value="{{was}}">
-          <ion-icon name="{{was.icon}}"></ion-icon>
-          {{was.label}}
+      <ion-select interface="action-sheet" formControlName="icon" required>
+        <ion-select-option *ngFor="let icon of icons" value="{{icon}}">
+          {{icon}}
         </ion-select-option>
       </ion-select>
     </ion-item>
+
   </form>
 </ion-content>
 

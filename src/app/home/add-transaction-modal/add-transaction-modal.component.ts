@@ -32,6 +32,7 @@ export class AddTransactionModalComponent implements OnInit, OnDestroy {
       this.tws.observe().subscribe(value => {
         this.kategories = value;
         this.filterKategories();
+        console.log(this.filteredKategories);
       }));
     this.subscriptions.push(this.formGroup.get('type').valueChanges.subscribe(() => {
       this.filterKategories();
